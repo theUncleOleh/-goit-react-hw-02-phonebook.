@@ -22,16 +22,9 @@ state = {
   
 }
 
-handleInputId = nanoid();
-
-
-
-
- 
-
 addContact = ({id, name, number}) => {
   const contact = {
-    id,
+    id: nanoid(),
     name,
     number
 }
@@ -44,11 +37,10 @@ if (!findContact) {
   alert(`${name} is already in contacts`)
 }
 
-  
+  }
 
 
-}
-deleteContact = (contactId) => {
+  deleteContact = (contactId) => {
 this.setState(prevState => ({
   contacts: prevState.contacts.filter(contact => contact.id !== contactId)
 }))
@@ -76,7 +68,7 @@ getFilteredName = () => {
 
 
 render() {
-const {filter, contacts} = this.state;
+const {filter} = this.state;
 
   const filteredName = this.getFilteredName();
 
